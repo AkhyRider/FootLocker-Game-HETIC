@@ -1,0 +1,197 @@
+/* =========================================
+   1. GLOBAL RESET
+   ========================================= */
+:root {
+    --font-main: 'Jersey 10', 'Bebas Neue', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: var(--font-main);
+    background-image: url('../images/Desktop14.png'); /* Background */
+    background-position: center;
+    background-size: cover;
+    overflow: hidden; 
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* =========================================
+   2. THE CARD (DEFAULT: PAGE 1 & 2)
+   ========================================= */
+.card-container {
+    background-image: url('../images/game-wrapper.png');
+    background-size: 100% 100%; /* Forces image to stretch to fit */
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    /* FIX: Made it taller so the Form fits nicely */
+    width: 600px;  
+    height: 500px; 
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; 
+    padding: 40px; 
+    position: relative;
+}
+
+/* --- TITLE (Default) --- */
+.main-title {
+    font-family: 'Impact', sans-serif;
+    font-size: 3.5rem; 
+    color: #D81B1B;
+    text-transform: uppercase;
+    text-shadow: -2px -2px 0 #f5e12e, 2px -2px 0 #f5e12e, -2px 2px 0 #f5e12e, 2px 2px 0 #f5e12e;
+    
+    /* FIX: Pushes title down slightly from the top edge */
+    margin-top: 10px; 
+    text-align: center;
+}
+
+/* =========================================
+   3. THE EXCEPTION (PAGE 3 ONLY)
+   (This is the Big Card for the Slot Machine)
+   ========================================= */
+.card-container.game-mode {
+    width: 900px;  /* Wider for the game */
+    height: 600px; /* Taller for the game */
+    gap: 10px; 
+}
+
+/* Make title bigger ONLY on Page 3 */
+.card-container.game-mode .main-title {
+    font-size: 4.5rem; 
+    margin-top: -30px;
+}
+
+/* =========================================
+   4. FORM STYLES (Page 2 Fixes)
+   ========================================= */
+.game-form {
+    display: flex;
+    flex-direction: column;
+    width: 70%;      /* Narrower so it looks neat */
+    gap: 12px;       /* Space between inputs */
+    align-items: center;
+    margin-top: 10px;
+}
+
+.game-form input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+    font-family: inherit;
+}
+
+.game-form input:focus { border-color: #FF0000; }
+
+/* BUTTONS (Start & Form) */
+.btn-start, .btn-form {
+    text-decoration: none;
+    background-color: #D81B1B;
+    color: white;
+    font-weight: bold;
+    font-size: 1.8rem; /* Slightly smaller text */
+    padding: 10px 40px;
+    border-radius: 50px;
+    border: 2px solid white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: transform 0.2s;
+    font-family: inherit;
+    margin-top: 10px;
+}
+
+.btn-start:hover, .btn-form:hover { transform: scale(1.05); }
+
+/* =========================================
+   5. SLOT MACHINE (Page 3 Only)
+   ========================================= */
+.slot-machine {
+    overflow: visible !important; 
+    position: relative; 
+    width: fit-content;
+    margin: 20px auto; 
+    
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; 
+    
+    border: 12px solid transparent; 
+    border-radius: 30px;
+    background: linear-gradient(white, white) padding-box, linear-gradient(to bottom, #E6C85D 0%, #BE9B10 100%) border-box;
+    
+    padding: 10px 30px;         
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    z-index: 10;
+}
+
+.reel {
+    width: 110px; 
+    height: 110px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reel img { width: 90%; height: auto; object-fit: contain; }
+
+/* =========================================
+   6. THE LEVER
+   ========================================= */
+.lever-container {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -70px; 
+    width: 60px;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 100 !important;
+    overflow: visible;
+}
+
+.lever-ball {
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle at 30% 30%, #ff4d4d, #cc0000);
+    border-radius: 50%;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.4);
+    position: absolute;
+    top: 0;
+    z-index: 102; 
+}
+
+.lever-stick {
+    width: 12px;
+    height: 90px;
+    background: linear-gradient(90deg, #999, #fff, #666);
+    border-radius: 6px;
+    margin-top: 20px;
+    z-index: 101;
+}
+
+/* =========================================
+   7. FOOTER LOGO
+   ========================================= */
+.logo-corner {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 80px; 
+}
