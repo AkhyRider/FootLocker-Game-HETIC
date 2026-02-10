@@ -1,15 +1,14 @@
 /* =========================================
-   1. VARIABLES (Couleurs Figma ici !)
+   1. VARIABLES (Couleurs Figma)
    ========================================= */
 :root {
-    /* Remplacez ces valeurs par celles de votre Figma (Pipette) */
-    --All-color: #228b22 ;  /* Exemple : vert forêt */
-    --secondary-color: #FF0000 ; /* Exemple : rouge vif */
-    --third-color: #BE9B10 ; /* Exemple : jaune doré */
-    --fourth-color: #000000 ; /* Exemple : noir profond */
+    --primary-color: #228b22;
+    --secondary-color: #FF0000;
+    --third-color: #BE9B10;
+    --fourth-color: #000000;
     --text-dark: #820000;
     --text-light: #F3F4F6;
-    --font-main: 'Jersey 10' sans-serif, 'Bebas Neue', sans-serif;
+    --font-main: 'Jersey 10', 'Bebas Neue', sans-serif;
 }
 
 /* =========================================
@@ -26,15 +25,10 @@ body {
     font-family: var(--font-main);
     color: var(--text-dark);
     line-height: 1.6;
-    background-image: url(../images/Desktop14.png);
-    background-position: center;
-}
-
-
 }
 
 img {
-    max-width: 100%; /* CRUCIAL pour le responsive */
+    max-width: 100%;
     height: auto;
     display: block;
 }
@@ -45,12 +39,287 @@ a {
 }
 
 /* =========================================
-   3. UTILITAIRES (Pour aller vite)
+   3. PAGE D'ACCUEIL - Fond terrain de foot
+   ========================================= */
+.home-page {
+    /* Fond terrain de foot */
+    background-image: url('../images/Desktop14.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Prend tout l'écran */
+    min-height: 100vh;
+    width: 100%;
+    
+    /* Centre la carte */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Pour le logo en position absolue */
+    position: relative;
+    overflow: hidden;
+}
+
+/* =========================================
+   4. CARTE DORÉE - Cadre avec rayures
+   ========================================= */
+.card-container {
+    /* Image du cadre doré avec rayures */
+    background-image: url('../images/game-wrapper.png');
+    background-size: 100% 100%; /* Étire l'image pour remplir exactement le conteneur */
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    /* Dimensions du cadre (ajustez selon votre image) */
+    width: 650px;
+    max-width: 90vw;
+    height: 450px;
+    
+    /* Centre le contenu à l'intérieur */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px; /* Augmenté pour espacer titre et bouton */
+    
+    /* Espacement intérieur pour éviter les bords */
+    padding: 80px 40px 60px; /* Plus d'espace en haut pour descendre le titre */
+    
+    /* Petite ombre pour plus de profondeur */
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
+    
+    /* Position relative pour les lumières */
+    position: relative;
+    
+    /* Animation des guirlandes lumineuses */
+    animation: lights-glow 3s ease-in-out infinite;
+}
+
+/* Animation des guirlandes - effet de clignotement doux */
+@keyframes lights-glow {
+    0%, 100% {
+        filter: 
+            drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3))
+            drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+    }
+    25% {
+        filter: 
+            drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3))
+            drop-shadow(0 0 20px rgba(255, 215, 0, 0.8))
+            drop-shadow(0 0 30px rgba(255, 200, 0, 0.5));
+    }
+    50% {
+        filter: 
+            drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3))
+            drop-shadow(0 0 15px rgba(255, 215, 0, 0.5));
+    }
+    75% {
+        filter: 
+            drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3))
+            drop-shadow(0 0 25px rgba(255, 215, 0, 0.9))
+            drop-shadow(0 0 35px rgba(255, 180, 0, 0.6));
+    }
+}
+
+/* =========================================
+   5. TITRE "TENTE TA CHANCE !"
+   ========================================= */
+.main-title {
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    font-size: 4.5rem; /* Augmenté pour plus de lisibilité */
+    font-weight: 900;
+    color: #FF0000; /* Rouge plus vif pour meilleure lisibilité */
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 3px;
+    line-height: 1.1;
+    
+    /* Contour noir épais pour contraste maximum */
+    -webkit-text-stroke: 5px #000000;
+    text-shadow: 
+        -4px -4px 0 #000,  
+         4px -4px 0 #000,
+        -4px  4px 0 #000,
+         4px  4px 0 #000,
+         0 0 20px rgba(255, 0, 0, 0.8),
+         0 0 30px rgba(255, 0, 0, 0.5);
+    
+    /* S'adapte à la largeur */
+    max-width: 100%;
+    margin: 0;
+    
+    /* Animation clignotante comme le bouton */
+    animation: title-pulse 2.5s ease-in-out infinite;
+}
+
+/* Animation de pulsation pour le titre */
+@keyframes title-pulse {
+    0%, 100% {
+        transform: scale(1);
+        text-shadow: 
+            -4px -4px 0 #000,  
+             4px -4px 0 #000,
+            -4px  4px 0 #000,
+             4px  4px 0 #000,
+             0 0 20px rgba(255, 0, 0, 0.8),
+             0 0 30px rgba(255, 0, 0, 0.5);
+    }
+    50% {
+        transform: scale(1.03);
+        text-shadow: 
+            -4px -4px 0 #000,  
+             4px -4px 0 #000,
+            -4px  4px 0 #000,
+             4px  4px 0 #000,
+             0 0 30px rgba(255, 0, 0, 1),
+             0 0 40px rgba(255, 0, 0, 0.8),
+             0 0 50px rgba(255, 50, 0, 0.6);
+    }
+}
+
+/* =========================================
+   6. BOUTON START
+   ========================================= */
+.btn-start {
+    display: inline-block;
+    background-color: #8B1818; /* Rouge bordeaux plus foncé */
+    color: white;
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    font-weight: bold;
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    
+    /* Forme et taille */
+    padding: 18px 70px;
+    border-radius: 50px;
+    
+    /* Bordure rouge foncé */
+    border: 5px solid #5A0000;
+    box-shadow: 
+        0 6px 12px rgba(0, 0, 0, 0.4),
+        inset 0 -3px 8px rgba(0, 0, 0, 0.3),
+        0 0 25px rgba(216, 27, 27, 0.7);
+    
+    /* Animation clignotante plus visible */
+    animation: button-pulse 1.8s ease-in-out infinite;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* Animation de clignotement intense pour le bouton */
+@keyframes button-pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 
+            0 6px 12px rgba(0, 0, 0, 0.4),
+            inset 0 -3px 8px rgba(0, 0, 0, 0.3),
+            0 0 25px rgba(216, 27, 27, 0.7);
+        background-color: #8B1818;
+    }
+    50% {
+        transform: scale(1.08);
+        box-shadow: 
+            0 10px 20px rgba(0, 0, 0, 0.6),
+            inset 0 -3px 8px rgba(0, 0, 0, 0.3),
+            0 0 40px rgba(255, 0, 0, 1),
+            0 0 60px rgba(255, 50, 0, 0.8),
+            0 0 80px rgba(255, 100, 0, 0.5);
+        background-color: #A01D1D;
+    }
+}
+
+.btn-start:hover {
+    transform: scale(1.12);
+    background-color: #A01D1D;
+    animation: none; /* Arrête le clignotement au survol */
+    box-shadow: 
+        0 10px 20px rgba(0, 0, 0, 0.6),
+        inset 0 -3px 8px rgba(0, 0, 0, 0.3),
+        0 0 35px rgba(216, 27, 27, 0.9);
+}
+
+.btn-start:active {
+    transform: scale(1.05);
+}
+
+/* =========================================
+   7. LOGO FOOT LOCKER - Coin bas droite
+   ========================================= */
+.logo-corner {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 80px;
+    height: auto;
+    z-index: 10;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* =========================================
+   8. RESPONSIVE - Mobile & Tablette
+   ========================================= */
+@media (max-width: 768px) {
+    .card-container {
+        width: 90vw;
+        height: auto;
+        min-height: 350px;
+        padding: 70px 30px 50px;
+        gap: 40px;
+    }
+    
+    .main-title {
+        font-size: 3rem;
+        -webkit-text-stroke: 4px #000000;
+        letter-spacing: 2px;
+    }
+    
+    .btn-start {
+        font-size: 1.8rem;
+        padding: 15px 50px;
+    }
+    
+    .logo-corner {
+        width: 60px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-container {
+        padding: 60px 20px 40px;
+        gap: 35px;
+    }
+    
+    .main-title {
+        font-size: 2.2rem;
+        -webkit-text-stroke: 3px #000000;
+        letter-spacing: 1px;
+    }
+    
+    .btn-start {
+        font-size: 1.5rem;
+        padding: 12px 40px;
+        letter-spacing: 2px;
+    }
+    
+    .logo-corner {
+        width: 50px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+/* =========================================
+   9. UTILITAIRES (si nécessaire)
    ========================================= */
 .container {
     width: 90%;
     max-width: 1200px;
-    margin: 0 auto; /* Centre le contenu */
+    margin: 0 auto;
 }
 
 .flex {
@@ -59,126 +328,8 @@ a {
     align-items: center;
 }
 
-/* =========================================
-   4. NAVIGATION (Commune aux 3 pages)
-   ========================================= */
+/* Navigation (pour les autres pages) */
 nav {
     background-color: var(--primary-color);
     padding: 1rem 0;
-}
-/* Ajoutez ici le style des liens */
-
-
-/* =========================================
-   5. RESPONSIVE (MEDIA QUERIES)
-   ========================================= */
-@media (max-width: 768px) {
-    .flex {
-        flex-direction: column; /* Passe tout en colonne sur mobile */
-    }
-    
-    .container {
-        width: 95%;
-    }
-}
-
-/* =========================================
-   STYLE SPÉCIFIQUE PAGE ACCUEIL (index.html)
-   ========================================= */
-
-/* 1. Le fond terrain de foot */
-.home-page {
-    background-image: url('..'); /* Mettez ici l'image de fond exportée de Figma */
-    background-size: cover;
-    background-position: center;
-    height: 100vh; /* Prend tout l'écran */
-    width: 100vw;
-    display: flex;            /* Pour centrer la carte */
-    justify-content: center;  /* Centrage horizontal */
-    align-items: center;      /* Centrage vertical */
-    position: relative;       /* Pour le logo en absolu */
-    overflow: hidden;         /* Évite les ascenseurs */
-}
-
-/* 2. La carte dorée (Conteneur) */
-.card-container {
-    /* Mettez ici l'image du cadre exportée sans texte */
-    background-image: url('images/game-wrapper.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    
-    /* Dimensions : REGARDEZ SUR FIGMA ! (Exemple approximatif) */
-    width: 600px;  
-    height: 400px;
-    
-    /* Flexbox pour aligner le texte et le bouton DANS le cadre */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 30px; /* Espace entre le titre et le bouton */
-    
-    padding: 40px; /* Marge intérieure pour ne pas toucher les bords */
-}
-
-/* 3. Le Titre "TENTE TA CHANCE" */
-.main-title {
-    font-family: 'Impact', sans-serif; /* Ou la police du projet */
-    font-size: 3rem; /* Ajuster selon Figma */
-    color: #D81B1B; /* Rouge approximatif */
-    text-transform: uppercase;
-    text-align: center;
-    
-    /* Contour blanc autour du texte (Effet Sticker) */
-    text-shadow: 
-        -2px -2px 0 #fff,  
-         2px -2px 0 #fff,
-        -2px  2px 0 #fff,
-         2px  2px 0 #fff;
-    /* Si vous voulez être très précis et que vous connaissez la propriété :
-       -webkit-text-stroke: 2px white; 
-    */
-}
-
-/* 4. Le Bouton START */
-.btn-start {
-    display: inline-block;
-    background-color: #D81B1B; /* Même rouge que le titre */
-    color: white;
-    font-weight: bold;
-    font-size: 1.5rem;
-    padding: 10px 40px;
-    border-radius: 50px; /* Forme de pilule */
-    border: 2px solid white; /* Petit contour blanc si visible sur Figma */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3); /* Légère ombre */
-    transition: transform 0.2s ease;
-}
-
-.btn-start:hover {
-    transform: scale(1.05); /* Petit effet zoom au survol */
-    cursor: pointer;
-}
-
-/* 5. Logo en bas à droite */
-.logo-corner {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    width: 60px; /* Ajuster la taille */
-}
-
-/* =========================================
-   RESPONSIVE (Mobile)
-   ========================================= */
-@media (max-width: 768px) {
-    .card-container {
-        width: 90%; /* Prend 90% de la largeur sur mobile */
-        height: auto;
-        aspect-ratio: 4/3; /* Garde le ratio */
-    }
-    
-    .main-title {
-        font-size: 2rem;
-    }
 }
