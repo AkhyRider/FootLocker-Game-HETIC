@@ -28,6 +28,9 @@ body {
     line-height: 1.6;
     background-image: url(../images/Desktop14.png);
     background-position: center;
+    background-size: cover;
+        background-attachment: fixed; /* Pour que le fond ne bouge pas au scroll */
+        
 }
 
 
