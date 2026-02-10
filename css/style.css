@@ -112,8 +112,8 @@ nav {
     background-position: center;
     
     /* Dimensions : REGARDEZ SUR FIGMA ! (Exemple approximatif) */
-    width: 600px;  
-    height: 400px;
+    width: 700px;  
+    height: 500px;
     
     /* Flexbox pour aligner le texte et le bouton DANS le cadre */
     display: flex;
@@ -195,8 +195,8 @@ nav {
     
     /* C'EST ICI QU'ON AGRANDIT L'IMAGE ! */
     /* J'ai augmenté les valeurs (de 600px/400px à 800px/550px) */
-    width: 800px;  
-    height: 550px;
+    width: 900px;  
+    height: 650px;
     
     /* Le Flexbox s'occupe de centrer ton texte et ton bouton DANS l'image */
     display: flex;
@@ -218,7 +218,7 @@ nav {
     display: flex;
     flex-direction: column;
     width: 80%; /* Prend 80% de la largeur du cadre */
-    max-width: 400px; /* Pas trop large non plus */
+    max-width: 500px; /* Pas trop large non plus */
     gap: 15px; /* Espace entre les champs */
     align-items: center; /* Centre le bouton */
 }
@@ -226,7 +226,7 @@ nav {
 /* Style des champs de texte (Input) */
 .game-form input {
     width: 100%;
-    padding: 12px 20px;
+    padding: 14px 20px;
     border: 2px solid #000; /* Bordure noire par défaut */
     border-radius: 5px;
     font-family: var(--font-main);
