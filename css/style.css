@@ -1,5 +1,5 @@
 /* =========================================
-   1. VARIABLES (Couleurs Figma ici !)
+1. VARIABLES (Couleurs Figma ici !)
    ========================================= */
 :root {
     /* Remplacez ces valeurs par celles de votre Figma (Pipette) */
@@ -13,7 +13,7 @@
 }
 
 /* =========================================
-   2. RESET & GLOBAL
+2. RESET & GLOBAL
    ========================================= */
 * {
     box-sizing: border-box;
@@ -31,7 +31,6 @@ body {
 }
 
 
-}
 
 img {
     max-width: 100%; /* CRUCIAL pour le responsive */
@@ -45,7 +44,7 @@ a {
 }
 
 /* =========================================
-   3. UTILITAIRES (Pour aller vite)
+3. UTILITAIRES (Pour aller vite)
    ========================================= */
 .container {
     width: 90%;
@@ -60,7 +59,7 @@ a {
 }
 
 /* =========================================
-   4. NAVIGATION (Commune aux 3 pages)
+4. NAVIGATION (Commune aux 3 pages)
    ========================================= */
 nav {
     background-color: var(--primary-color);
@@ -70,7 +69,7 @@ nav {
 
 
 /* =========================================
-   5. RESPONSIVE (MEDIA QUERIES)
+5. RESPONSIVE (MEDIA QUERIES)
    ========================================= */
 @media (max-width: 768px) {
     .flex {
@@ -137,7 +136,7 @@ nav {
         -2px  2px 0 #fff,
          2px  2px 0 #fff;
     /* Si vous voulez être très précis et que vous connaissez la propriété :
-       -webkit-text-stroke: 2px white; 
+-webkit-text-stroke: 2px white; 
     */
 }
 
@@ -169,7 +168,7 @@ nav {
 }
 
 /* =========================================
-   RESPONSIVE (Mobile)
+RESPONSIVE (Mobile)
    ========================================= */
 @media (max-width: 768px) {
     .card-container {
