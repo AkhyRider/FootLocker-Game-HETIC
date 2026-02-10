@@ -207,3 +207,59 @@ nav {
     
     padding: 40px; 
 }
+
+/*page2.html*/
+/* =========================================
+   STYLE DU FORMULAIRE (Page 2)
+   ========================================= */
+
+/* Mise en page du formulaire */
+.game-form {
+    display: flex;
+    flex-direction: column;
+    width: 80%; /* Prend 80% de la largeur du cadre */
+    max-width: 400px; /* Pas trop large non plus */
+    gap: 15px; /* Espace entre les champs */
+    align-items: center; /* Centre le bouton */
+}
+
+/* Style des champs de texte (Input) */
+.game-form input {
+    width: 100%;
+    padding: 12px 20px;
+    border: 2px solid #000; /* Bordure noire par défaut */
+    border-radius: 5px;
+    font-family: var(--font-main);
+    font-size: 1.1rem;
+    outline: none; /* Enlève le contour bleu moche par défaut */
+    transition: all 0.3s ease;
+}
+
+/* Quand on clique dans le champ */
+.game-form input:focus {
+    border-color: var(--secondary-color); /* Devient rouge Foot Locker */
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.3);
+}
+
+/* Ajustement spécifique pour le bouton dans le formulaire */
+.btn-form {
+    margin-top: 10px;
+    border: none; /* Enlève la bordure par défaut du bouton html */
+    cursor: pointer;
+    font-family: var(--font-main);
+    /* On réutilise les styles de .btn-start, donc pas besoin de tout réécrire */
+}
+
+/* =========================================
+   RESPONSIVE FORMULAIRE
+   ========================================= */
+@media (max-width: 768px) {
+    .game-form {
+        width: 90%;
+    }
+    
+    .game-form input {
+        padding: 10px;
+        font-size: 1rem;
+    }
+}
