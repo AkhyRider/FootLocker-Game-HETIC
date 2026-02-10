@@ -1,0 +1,184 @@
+/* =========================================
+   1. VARIABLES (Couleurs Figma ici !)
+   ========================================= */
+:root {
+    /* Remplacez ces valeurs par celles de votre Figma (Pipette) */
+    --All-color: #228b22 ;  /* Exemple : vert forêt */
+    --secondary-color: #FF0000 ; /* Exemple : rouge vif */
+    --third-color: #BE9B10 ; /* Exemple : jaune doré */
+    --fourth-color: #000000 ; /* Exemple : noir profond */
+    --text-dark: #820000;
+    --text-light: #F3F4F6;
+    --font-main: 'Jersey 10' sans-serif, 'Bebas Neue', sans-serif;
+}
+
+/* =========================================
+   2. RESET & GLOBAL
+   ========================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: var(--font-main);
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-image: url(../images/Desktop14.png);
+    background-position: center;
+}
+
+
+}
+
+img {
+    max-width: 100%; /* CRUCIAL pour le responsive */
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* =========================================
+   3. UTILITAIRES (Pour aller vite)
+   ========================================= */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto; /* Centre le contenu */
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* =========================================
+   4. NAVIGATION (Commune aux 3 pages)
+   ========================================= */
+nav {
+    background-color: var(--primary-color);
+    padding: 1rem 0;
+}
+/* Ajoutez ici le style des liens */
+
+
+/* =========================================
+   5. RESPONSIVE (MEDIA QUERIES)
+   ========================================= */
+@media (max-width: 768px) {
+    .flex {
+        flex-direction: column; /* Passe tout en colonne sur mobile */
+    }
+    
+    .container {
+        width: 95%;
+    }
+}
+
+/* =========================================
+   STYLE SPÉCIFIQUE PAGE ACCUEIL (index.html)
+   ========================================= */
+
+/* 1. Le fond terrain de foot */
+.home-page {
+    background-image: url('..'); /* Mettez ici l'image de fond exportée de Figma */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Prend tout l'écran */
+    width: 100vw;
+    display: flex;            /* Pour centrer la carte */
+    justify-content: center;  /* Centrage horizontal */
+    align-items: center;      /* Centrage vertical */
+    position: relative;       /* Pour le logo en absolu */
+    overflow: hidden;         /* Évite les ascenseurs */
+}
+
+/* 2. La carte dorée (Conteneur) */
+.card-container {
+    /* Mettez ici l'image du cadre exportée sans texte */
+    background-image: url('images/game-wrapper.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    /* Dimensions : REGARDEZ SUR FIGMA ! (Exemple approximatif) */
+    width: 600px;  
+    height: 400px;
+    
+    /* Flexbox pour aligner le texte et le bouton DANS le cadre */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* Espace entre le titre et le bouton */
+    
+    padding: 40px; /* Marge intérieure pour ne pas toucher les bords */
+}
+
+/* 3. Le Titre "TENTE TA CHANCE" */
+.main-title {
+    font-family: 'Impact', sans-serif; /* Ou la police du projet */
+    font-size: 3rem; /* Ajuster selon Figma */
+    color: #D81B1B; /* Rouge approximatif */
+    text-transform: uppercase;
+    text-align: center;
+    
+    /* Contour blanc autour du texte (Effet Sticker) */
+    text-shadow: 
+        -2px -2px 0 #fff,  
+         2px -2px 0 #fff,
+        -2px  2px 0 #fff,
+         2px  2px 0 #fff;
+    /* Si vous voulez être très précis et que vous connaissez la propriété :
+       -webkit-text-stroke: 2px white; 
+    */
+}
+
+/* 4. Le Bouton START */
+.btn-start {
+    display: inline-block;
+    background-color: #D81B1B; /* Même rouge que le titre */
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 10px 40px;
+    border-radius: 50px; /* Forme de pilule */
+    border: 2px solid white; /* Petit contour blanc si visible sur Figma */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3); /* Légère ombre */
+    transition: transform 0.2s ease;
+}
+
+.btn-start:hover {
+    transform: scale(1.05); /* Petit effet zoom au survol */
+    cursor: pointer;
+}
+
+/* 5. Logo en bas à droite */
+.logo-corner {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 60px; /* Ajuster la taille */
+}
+
+/* =========================================
+   RESPONSIVE (Mobile)
+   ========================================= */
+@media (max-width: 768px) {
+    .card-container {
+        width: 90%; /* Prend 90% de la largeur sur mobile */
+        height: auto;
+        aspect-ratio: 4/3; /* Garde le ratio */
+    }
+    
+    .main-title {
+        font-size: 2rem;
+    }
+}
