@@ -1,5 +1,5 @@
 /* =========================================
-1. VARIABLES (Couleurs Figma ici !)
+   1. VARIABLES (Couleurs Figma ici !)
    ========================================= */
 :root {
     /* Remplacez ces valeurs par celles de votre Figma (Pipette) */
@@ -13,7 +13,7 @@
 }
 
 /* =========================================
-2. RESET & GLOBAL
+   2. RESET & GLOBAL
    ========================================= */
 * {
     box-sizing: border-box;
@@ -22,16 +22,17 @@
 }
 
 body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
     font-family: var(--font-main);
     color: var(--text-dark);
     line-height: 1.6;
     background-image: url(../images/Desktop14.png);
     background-position: center;
-    background-size: cover;
-        background-attachment: fixed; /* Pour que le fond ne bouge pas au scroll */
-        
 }
+
 
 
 
@@ -47,7 +48,7 @@ a {
 }
 
 /* =========================================
-3. UTILITAIRES (Pour aller vite)
+   3. UTILITAIRES (Pour aller vite)
    ========================================= */
 .container {
     width: 90%;
@@ -62,7 +63,7 @@ a {
 }
 
 /* =========================================
-4. NAVIGATION (Commune aux 3 pages)
+   4. NAVIGATION (Commune aux 3 pages)
    ========================================= */
 nav {
     background-color: var(--primary-color);
@@ -72,7 +73,7 @@ nav {
 
 
 /* =========================================
-5. RESPONSIVE (MEDIA QUERIES)
+   5. RESPONSIVE (MEDIA QUERIES)
    ========================================= */
 @media (max-width: 768px) {
     .flex {
@@ -139,7 +140,7 @@ nav {
         -2px  2px 0 #fff,
          2px  2px 0 #fff;
     /* Si vous voulez être très précis et que vous connaissez la propriété :
--webkit-text-stroke: 2px white; 
+       -webkit-text-stroke: 2px white; 
     */
 }
 
@@ -171,7 +172,7 @@ nav {
 }
 
 /* =========================================
-RESPONSIVE (Mobile)
+   RESPONSIVE (Mobile)
    ========================================= */
 @media (max-width: 768px) {
     .card-container {
@@ -183,4 +184,26 @@ RESPONSIVE (Mobile)
     .main-title {
         font-size: 2rem;
     }
+}
+.card-container {
+    /* Attention : vu que ton fichier CSS est dans le dossier css/, 
+       il faut souvent mettre ../ avant images/ pour remonter d'un dossier */
+    background-image: url('../images/game-wrapper.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    /* C'EST ICI QU'ON AGRANDIT L'IMAGE ! */
+    /* J'ai augmenté les valeurs (de 600px/400px à 800px/550px) */
+    width: 800px;  
+    height: 550px;
+    
+    /* Le Flexbox s'occupe de centrer ton texte et ton bouton DANS l'image */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; 
+    
+    padding: 40px; 
 }
