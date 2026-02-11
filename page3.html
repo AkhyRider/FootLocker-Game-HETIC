@@ -8,12 +8,12 @@
 </head>
 <body>
     
-    <main class="card-container">      
+    <main class="card-container game-mode">      
+        
         <h1 class="main-title">SLOT LOCKER</h1>     
         
         <div class="game-layout">
             <div class="slot-machine">
-                
                 <div class="reel" id="reel1">
                     <img src="images/icon-foot.png" alt="1">
                 </div>
@@ -28,11 +28,31 @@
                     <div class="lever-ball"></div>  
                     <div class="lever-stick"></div> 
                 </div>
-
             </div>
         </div>
     </main>
 
     <img src="images/foot-locker-logo 1.png" alt="Logo" class="logo-corner">
+
+    <script>
+        function pullLever() {
+            const ball = document.querySelector('.lever-ball');
+            
+            if(ball) {
+                // 1. Make the animation smooth
+                ball.style.transition = "top 0.3s ease"; 
+                
+                // 2. Pull the ball down
+                ball.style.top = "50px"; 
+                
+                
+                setTimeout(() => {
+                    ball.style.top = "0px";
+                    console.log("Spinning..."); 
+                }, 300);
+            }
+        }
+    </script>
 </body>
 </html>
+
