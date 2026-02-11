@@ -164,6 +164,7 @@ img { max-width: 100%; height: auto; display: block; }
     align-items: center;
     z-index: 100 !important;
     overflow: visible;
+    cursor: pointer
 }
 
 .lever-ball {
@@ -195,3 +196,4 @@ img { max-width: 100%; height: auto; display: block; }
     right: 20px;
     width: 80px; 
 }
+
