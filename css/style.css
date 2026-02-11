@@ -22,7 +22,7 @@ body {
 img { max-width: 100%; height: auto; display: block; }
 
 /* =========================================
-   2. THE CARD (DEFAULT: PAGE 1 & 2)
+   2. THE CARD (DEFAULT: PAGE 1, 2 & 3)
    ========================================= */
 .card-container {
     background-image: url('../images/game-wrapper.png');
@@ -55,23 +55,6 @@ img { max-width: 100%; height: auto; display: block; }
     margin-top: 10px; 
     text-align: center;
 }
-
-/* =========================================
-   3. THE EXCEPTION (PAGE 3 ONLY)
-   (This is the Big Card for the Slot Machine)
-   ========================================= */
-.card-container.game-mode {
-    width: 900px;  /* Wider for the game */
-    height: 600px; /* Taller for the game */
-    gap: 10px; 
-}
-
-/* Make title bigger ONLY on Page 3 */
-.card-container.game-mode .main-title {
-    font-size: 4.5rem; 
-    margin-top: -30px;
-}
-
 /* =========================================
    4. FORM STYLES (Page 2 Fixes)
    ========================================= */
@@ -194,6 +177,7 @@ img { max-width: 100%; height: auto; display: block; }
     position: absolute;
     bottom: 20px;
     right: 20px;
-    width: 80px; 
+    width: 150px; 
 }
+
 
