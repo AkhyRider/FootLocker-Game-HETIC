@@ -45,6 +45,53 @@ img { max-width: 100%; height: auto; display: block; }
     animation: lights-glow 3s ease-in-out infinite;
 }
 
+.terms-container {
+    /* Styles for the scrollable box */
+  height: 175px; /* Adjust this number to make the box taller or shorter */
+  overflow-y: auto; /* This creates the scrollbar */
+  border: 1px solid #cccccc;
+  padding: 15px;
+  background-color: #000000;
+  border-radius: 5px;
+  margin-top: 80px;
+  margin-bottom: 80px; /* Adds space between the box and the checkbox */
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: white;
+  width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: auto;
+
+}
+
+/* Makes the heading look nice inside the box */
+.terms-box h3 {
+  margin-top: 0;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.terms-acceptance, .terms-acceptance input {
+  background-color: black;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  display: flex;
+  align-items: flex-start;
+  font-weight: bold;
+  color:#cc0000;
+  border: 1px solid #cccccc;
+  padding: 15px;
+  border-radius: 5px;
+  width: 450px;
+  white-space: nowrap;
+  text-align: left;
+
+}
+
+
 @keyframes lights-glow {
     0%, 100% {
         filter: 
@@ -79,7 +126,19 @@ img { max-width: 100%; height: auto; display: block; }
     text-shadow: -2px -2px 0 #f5e12e, 2px -2px 0 #f5e12e, -2px 2px 0 #f5e12e, 2px 2px 0 #f5e12e;
     
     /* FIX: Pushes title down slightly from the top edge */
-    margin-top: 10px; 
+    margin-top: 55px; 
+    text-align: center;
+}
+
+.main-title-terms{
+    font-family: 'Impact', sans-serif;
+    font-size: 3.5rem; 
+    color: #D81B1B;
+    text-transform: uppercase;
+    text-shadow: -2px -2px 0 #f5e12e, 2px -2px 0 #f5e12e, -2px 2px 0 #f5e12e, 2px 2px 0 #f5e12e;
+    
+    /* FIX: Pushes title down slightly from the top edge */
+    margin-top: 60px; 
     text-align: center;
 }
 /* =========================================
@@ -124,6 +183,19 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .btn-start:hover, .btn-form:hover { transform: scale(1.05); }
+
+.btn-start, .btn-game {
+    text-decoration: none;
+    font-size: 1,8rem; /* Slightly smaller text */
+    padding: 10px 40px;
+    border-radius: 50px;
+    margin-top: auto;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
 
 /* =========================================
    5. SLOT MACHINE (Page 3 Only)
