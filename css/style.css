@@ -5,7 +5,10 @@
     --font-main: 'Jersey 10', 'Bebas Neue', sans-serif;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; }
 
 body {
     display: flex;
@@ -67,29 +70,39 @@ img { max-width: 100%; height: auto; display: block; }
 
 }
 
-/* Makes the heading look nice inside the box */
 .terms-box h3 {
   margin-top: 0;
   font-size: 18px;
   color: #ffffff;
 }
 
-.terms-acceptance, .terms-acceptance input {
-  background-color: black;
-  font-family: Arial, sans-serif;
-  font-size: 11px;
+.terms-acceptance {
   display: flex;
-  align-items: flex-start;
-  font-weight: bold;
-  color:#cc0000;
-  border: 1px solid #cccccc;
-  padding: 15px;
-  border-radius: 5px;
+  align-items: flex-start; 
+  background-color: black;
+  color: #cc0000;
   width: 450px;
-  white-space: nowrap;
-  text-align: left;
-
+  padding: 15px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 11px;
 }
+
+/* Specific fix for the checkbox */
+.terms-acceptance input[type="checkbox"] {
+  flex-shrink: 0;       
+  margin-right: 12px;   
+  margin-top: 2px;      
+  cursor: pointer;
+}
+
+.terms-acceptance p, .terms-acceptance span { 
+  flex: 1;              
+  white-space: normal;  
+  margin: 0;            
+}
+
 
 
 @keyframes lights-glow {
