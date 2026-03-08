@@ -17,13 +17,28 @@
         <div class="game-layout">
             <div class="slot-machine">
                 <div class="reel" id="reel1">
-                    <img src="images/icon-foot.png" alt="1">
+                    <div class="reel-strip">
+                        <img src="images/icon-foot.png" alt="1">
+                        <img src="images/icon-basket.png" alt="2">
+                        <img src="images/icon-cap.png" alt="3">
+                        <img src="images/icon-foot.png" alt="1">
+                    </div>
                 </div>
                 <div class="reel" id="reel2">
-                    <img src="images/icon-basket.png" alt="2">
+                    <div class="reel-strip">
+                        <img src="images/icon-basket.png" alt="2">
+                        <img src="images/icon-cap.png" alt="3">
+                        <img src="images/icon-foot.png" alt="1">
+                        <img src="images/icon-basket.png" alt="2">
+                    </div>
                 </div>
                 <div class="reel" id="reel3">
-                    <img src="images/icon-cap.png" alt="3">
+                    <div class="reel-strip">
+                        <img src="images/icon-cap.png" alt="3">
+                        <img src="images/icon-foot.png" alt="1">
+                        <img src="images/icon-basket.png" alt="2">
+                        <img src="images/icon-cap.png" alt="3">
+                    </div>
                 </div>
 
                 <div class="lever-container" onclick="pullLever()">
@@ -38,109 +53,50 @@
     <img src="images/foot-locker-logo 1.png" alt="Logo" class="logo-corner">
 
     <script>
-        // prendre les 3 img pour l'animation du slot locker
-        let image1 = "images/icon-foot.png";
-        let image2 = "images/icon-basket.png";
-        let image3 = "images/icon-cap.png";
-
-        let imagesPossibles = [image1, image2, image3];
-
-        let compteurDeClics = 0; // Pour compter combien de fois le joueur a cliqué
-        let estEnTrainDeTourner = false; // Pour empêcher de cliquer plusieurs fois en même temps
+        let img1 = "images/icon-foot.png", img2 = "images/icon-basket.png", img3 = "images/icon-cap.png";
+        let clics = parseInt(sessionStorage.getItem('compteurDeClics') || "0");
+        let tourne = false;
 
         function pullLever() {
-            // si c'est déjà en train de tourne on peut pas réappuyer sur le bouton 
-            if (estEnTrainDeTourner == true) {
-                return;
-            }
+            if (tourne) return;
+            tourne = true;
+            sessionStorage.setItem('compteurDeClics', ++clics);
 
-            // On récupère les éléments HTML dont on a besoin
-            let balleDuLevier = document.querySelector('.lever-ball');
-            let messageResultat = document.getElementById('result-message');
+            let msg = document.getElementById('result-message');
+            msg.className = "result-message"; msg.textContent = "";
 
-            let imageReel1 = document.querySelector('#reel1 img');
-            let imageReel2 = document.querySelector('#reel2 img');
-            let imageReel3 = document.querySelector('#reel3 img');
+            let lever = document.querySelector('.lever-container');
+            lever.classList.add('lever-pull');
+            setTimeout(() => lever.classList.remove('lever-pull'), 300);
 
-            if (balleDuLevier) {
-                estEnTrainDeTourner = true;
-                compteurDeClics = compteurDeClics + 1;
+            let reels = [1, 2, 3].map(i => document.getElementById('reel' + i));
+            reels.forEach(r => r.classList.add('reel-spin'));
 
-                // On efface le message précédent
-                messageResultat.textContent = "";
-                messageResultat.className = "result-message";
+            let gagne = (clics === 3) || (clics > 3 && (clics - 3) % 5 === 0);
 
-                // 1. Animation du levier 
-                balleDuLevier.style.transition = "top 0.3s ease";
-                balleDuLevier.style.top = "50px";
+            let stopReel = (i, img, delay) => {
+                setTimeout(() => {
+                    reels[i].classList.remove('reel-spin');
+                    reels[i].querySelector('img').src = img;
+                }, delay);
+            };
 
-                setTimeout(function () {
-                    balleDuLevier.style.top = "0px";
-                }, 300);
+            stopReel(0, img1, 1000);
+            stopReel(1, gagne ? img1 : img2, 1500);
 
-                // 2. Faire tourner les images très vite
-                let interval1 = setInterval(function () {
-                    let nombreAleatoire = Math.floor(Math.random() * 3); // Donne 0, 1 ou 2
-                    imageReel1.src = imagesPossibles[nombreAleatoire];
-                }, 100);
+            setTimeout(() => {
+                reels[2].classList.remove('reel-spin');
+                reels[2].querySelector('img').src = gagne ? img1 : img3;
 
-                let interval2 = setInterval(function () {
-                    let nombreAleatoire = Math.floor(Math.random() * 3);
-                    imageReel2.src = imagesPossibles[nombreAleatoire];
-                }, 100);
+                msg.textContent = gagne ? "Gagné ! Redirection..." : "Perdu... Redirection...";
+                msg.classList.add(gagne ? "win" : "lose");
 
-                let interval3 = setInterval(function () {
-                    let nombreAleatoire = Math.floor(Math.random() * 3);
-                    imageReel3.src = imagesPossibles[nombreAleatoire];
-                }, 100);
-
-                // 3. HASARD pour savoir si le joueur gagne ou perd
-                let leJoueurAGagne = false;
-
-                if (compteurDeClics == 3) {
-                    leJoueurAGagne = true;
-                } else if (compteurDeClics > 3) {
-                    let ecartDeClics = compteurDeClics - 3;
-                    if (ecartDeClics % 5 == 0) {
-                        leJoueurAGagne = true;
-                    }
-                }
-
-                // 4. Arrêts successifs et résultats
-                setTimeout(function () {
-                    clearInterval(interval1);
-                    imageReel1.src = image1;
-                }, 1000);
-
-                setTimeout(function () {
-                    clearInterval(interval2);
-                    if (leJoueurAGagne == true) {
-                        imageReel2.src = image1;
-                    } else {
-                        imageReel2.src = image2;
-                    }
-                }, 1500);
-
-                setTimeout(function () {
-                    clearInterval(interval3);
-                    if (leJoueurAGagne == true) {
-                        imageReel3.src = image1;
-                        messageResultat.textContent = "C'est Gagné !! -40% offert sur toute la boutique";
-                        messageResultat.classList.add('win');
-                    } else {
-                        imageReel3.src = image3;
-                        messageResultat.textContent = "Perdu... retentez votre chance une prochaine fois !";
-                        messageResultat.classList.add('lose');
-                    }
-
-                    estEnTrainDeTourner = false;
-
-                }, 2000);
-            }
+                setTimeout(() => window.location.href = gagne ? "page_win.html" : "page_lose.html", 1000);
+            }, 2000);
         }
     </script>
 </body>
 
 </html>
 
-<!-- PAR LE GROUPE ENTIER -->
+<!-- PAR Racha louis et aymen -->

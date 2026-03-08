@@ -1,6 +1,3 @@
-/* =========================================
-   1. GLOBAL RESET
-   ========================================= */
 :root {
     --font-main: 'Jersey 10', 'Bebas Neue', sans-serif;
 }
@@ -30,17 +27,12 @@ img {
     display: block;
 }
 
-/* =========================================
-   2. THE CARD (DEFAULT: PAGE 1, 2 & 3)
-   ========================================= */
 .card-container {
     background-image: url('../images/game-wrapper.png');
     background-size: 100% 100%;
-    /* Forces image to stretch to fit */
     background-repeat: no-repeat;
     background-position: center;
 
-    /* FIX: Made it taller so the Form fits nicely */
     width: 600px;
     height: 500px;
 
@@ -56,11 +48,8 @@ img {
 }
 
 .terms-container {
-    /* Styles for the scrollable box */
     height: 175px;
-    /* Adjust this number to make the box taller or shorter */
     overflow-y: auto;
-    /* This creates the scrollbar */
     border: 1px solid #cccccc;
     padding: 15px;
     background-color: #000000;
@@ -91,7 +80,6 @@ img {
     font-size: 11px;
 }
 
-/* Specific fix for the checkbox */
 .terms-acceptance input[type="checkbox"] {
     flex-shrink: 0;
     margin-right: 12px;
@@ -132,7 +120,6 @@ img {
     }
 }
 
-/* --- TITLE (Default) --- */
 .main-title {
     font-family: 'Impact', sans-serif;
     font-size: 3.5rem;
@@ -143,24 +130,11 @@ img {
     text-align: center;
 }
 
-/* =========================================
-   3. THE EXCEPTION (PAGE 3 ONLY)
-   (This is the Big Card for the Slot Machine)
-   ========================================= */
-.card-container.game-mode {
-    gap: 15px;
-}
-
-/* =========================================
-   4. FORM STYLES (Page 2 Fixes)
-   ========================================= */
 .game-form {
     display: flex;
     flex-direction: column;
     width: 70%;
-    /* Narrower so it looks neat */
     gap: 12px;
-    /* Space between inputs */
     align-items: center;
     margin-top: 10px;
 }
@@ -179,7 +153,6 @@ img {
     border-color: #FF0000;
 }
 
-/* BUTTONS (Start & Form) */
 .btn-start,
 .btn-form {
     text-decoration: none;
@@ -187,7 +160,6 @@ img {
     color: white;
     font-weight: bold;
     font-size: 1.8rem;
-    /* Slightly smaller text */
     padding: 10px 40px;
     border-radius: 50px;
     border: 2px solid white;
@@ -206,7 +178,6 @@ img {
 .btn-game {
     text-decoration: none;
     font-size: 1.8rem;
-    /* Slightly smaller text */
     padding: 10px 40px;
     border-radius: 50px;
     margin-top: auto;
@@ -217,9 +188,6 @@ a {
     color: white;
 }
 
-/* =========================================
-   5. SLOT MACHINE (Page 3 Only)
-   ========================================= */
 .slot-machine {
     overflow: visible !important;
     position: relative;
@@ -244,20 +212,40 @@ a {
     width: 110px;
     height: 110px;
     background: transparent;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.reel-strip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
 }
 
-.reel img {
+.reel-strip img {
     width: 90%;
-    height: auto;
+    height: 110px; /* match reel height so one is visible at a time */
+    margin: 0 auto;
     object-fit: contain;
+    flex-shrink: 0;
+    display: block;
 }
 
-/* =========================================
-   6. THE LEVER
-   ========================================= */
+/* New CSS Animation for Spinning */
+.reel-spin .reel-strip {
+    /* Mouvement saccadé (steps) et plus lent au lieu de linéaire */
+    animation: spin-reel 0.6s steps(3) infinite;
+}
+
+@keyframes spin-reel {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-330px); }
+}
+
 .lever-container {
     position: absolute;
     top: 50%;
@@ -282,6 +270,11 @@ a {
     position: absolute;
     top: 0;
     z-index: 102;
+    transition: top 0.3s ease;
+}
+
+.lever-pull .lever-ball {
+    top: 50px;
 }
 
 .lever-stick {
@@ -293,9 +286,6 @@ a {
     z-index: 101;
 }
 
-/* =========================================
-   7. FOOTER LOGO
-   ========================================= */
 .logo-corner {
     position: absolute;
     bottom: 20px;
@@ -303,10 +293,6 @@ a {
     width: 150px;
 }
 
-
-/* =========================================
-   8. RESULT MESSAGE
-   ========================================= */
 .result-message {
     text-align: center;
     font-size: 2rem;
@@ -345,5 +331,68 @@ a {
 }
 
 
+
+/* =========================================
+   9. RESULT SCREENS (WIN / LOSE)
+   ========================================= */
+.win-screen {
+    border: 5px solid #2ecc71;
+    box-shadow: 0 0 20px #2ecc71, inset 0 0 20px #2ecc71;
+    animation: lights-glow-win 3s ease-in-out infinite;
+}
+
+.lose-screen {
+    border: 5px solid #e74c3c;
+    box-shadow: 0 0 20px #e74c3c, inset 0 0 20px #e74c3c;
+}
+
+@keyframes lights-glow-win {
+    0%, 100% { filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3)) drop-shadow(0 0 20px rgba(46, 204, 113, 0.5)); }
+    50% { filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3)) drop-shadow(0 0 35px rgba(46, 204, 113, 1)); }
+}
+
+.result-text {
+    font-size: 1.8rem;
+    text-align: center;
+    font-weight: bold;
+    margin: 15px 0;
+    font-family: 'Impact', sans-serif;
+    letter-spacing: 1px;
+}
+
+.win-text {
+    color: #2ecc71;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 2px 2px 5px rgba(0,0,0,0.8);
+}
+
+.lose-text {
+    color: #e74c3c;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 2px 2px 5px rgba(0,0,0,0.8);
+}
+
+.result-icon {
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+    margin: 20px 0;
+}
+
+.shake-anim {
+    animation: shake 0.5s infinite alternate;
+}
+
+@keyframes shake {
+    0% { transform: rotate(-10deg) scale(1); }
+    100% { transform: rotate(10deg) scale(1.1); }
+}
+
+.pulse-anim {
+    animation: pulse-icon 1s infinite alternate;
+}
+
+@keyframes pulse-icon {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.15); }
+}
 
 /* comme le code etait tres long on c'est répartie la tache sur nos différents IDE et fichers et ensuite rassembler en 1 tout le cods que pour chaque page de 1 à 4 */
