@@ -1,0 +1,349 @@
+/* =========================================
+   1. GLOBAL RESET
+   ========================================= */
+:root {
+    --font-main: 'Jersey 10', 'Bebas Neue', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: var(--font-main);
+    background-image: url('../images/Desktop14.png');
+    /* Background */
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* =========================================
+   2. THE CARD (DEFAULT: PAGE 1, 2 & 3)
+   ========================================= */
+.card-container {
+    background-image: url('../images/game-wrapper.png');
+    background-size: 100% 100%;
+    /* Forces image to stretch to fit */
+    background-repeat: no-repeat;
+    background-position: center;
+
+    /* FIX: Made it taller so the Form fits nicely */
+    width: 600px;
+    height: 500px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 40px;
+    position: relative;
+
+    animation: lights-glow 3s ease-in-out infinite;
+}
+
+.terms-container {
+    /* Styles for the scrollable box */
+    height: 175px;
+    /* Adjust this number to make the box taller or shorter */
+    overflow-y: auto;
+    /* This creates the scrollbar */
+    border: 1px solid #cccccc;
+    padding: 15px;
+    background-color: #000000;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: white;
+    width: 450px;
+}
+
+.terms-box h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.terms-acceptance {
+    display: flex;
+    align-items: flex-start;
+    background-color: black;
+    color: #cc0000;
+    width: 450px;
+    padding: 15px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+/* Specific fix for the checkbox */
+.terms-acceptance input[type="checkbox"] {
+    flex-shrink: 0;
+    margin-right: 12px;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+.terms-acceptance p,
+.terms-acceptance span {
+    flex: 1;
+    white-space: normal;
+    margin: 0;
+}
+
+
+
+@keyframes lights-glow {
+
+    0%,
+    100% {
+        filter:
+            drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3)) drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+    }
+
+    25% {
+        filter:
+            drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3)) drop-shadow(0 0 20px rgba(255, 215, 0, 0.8)) drop-shadow(0 0 30px rgba(255, 200, 0, 0.5));
+    }
+
+    50% {
+        filter:
+            drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3)) drop-shadow(0 0 15px rgba(255, 215, 0, 0.5));
+    }
+
+    75% {
+        filter:
+            drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3)) drop-shadow(0 0 25px rgba(255, 215, 0, 0.9)) drop-shadow(0 0 35px rgba(255, 180, 0, 0.6));
+    }
+}
+
+/* --- TITLE (Default) --- */
+.main-title {
+    font-family: 'Impact', sans-serif;
+    font-size: 3.5rem;
+    color: #D81B1B;
+    text-transform: uppercase;
+    text-shadow: -2px -2px 0 #f5e12e, 2px -2px 0 #f5e12e, -2px 2px 0 #f5e12e, 2px 2px 0 #f5e12e;
+
+    text-align: center;
+}
+
+/* =========================================
+   3. THE EXCEPTION (PAGE 3 ONLY)
+   (This is the Big Card for the Slot Machine)
+   ========================================= */
+.card-container.game-mode {
+    gap: 15px;
+}
+
+/* =========================================
+   4. FORM STYLES (Page 2 Fixes)
+   ========================================= */
+.game-form {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    /* Narrower so it looks neat */
+    gap: 12px;
+    /* Space between inputs */
+    align-items: center;
+    margin-top: 10px;
+}
+
+.game-form input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+    font-family: inherit;
+}
+
+.game-form input:focus {
+    border-color: #FF0000;
+}
+
+/* BUTTONS (Start & Form) */
+.btn-start,
+.btn-form {
+    text-decoration: none;
+    background-color: #D81B1B;
+    color: white;
+    font-weight: bold;
+    font-size: 1.8rem;
+    /* Slightly smaller text */
+    padding: 10px 40px;
+    border-radius: 50px;
+    border: 2px solid white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.2s;
+    font-family: inherit;
+    margin-top: 10px;
+}
+
+.btn-start:hover,
+.btn-form:hover {
+    transform: scale(1.05);
+}
+
+.btn-game {
+    text-decoration: none;
+    font-size: 1.8rem;
+    /* Slightly smaller text */
+    padding: 10px 40px;
+    border-radius: 50px;
+    margin-top: auto;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+/* =========================================
+   5. SLOT MACHINE (Page 3 Only)
+   ========================================= */
+.slot-machine {
+    overflow: visible !important;
+    position: relative;
+    width: fit-content;
+    margin: 20px auto;
+
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    border: 12px solid transparent;
+    border-radius: 30px;
+    background: linear-gradient(white, white) padding-box, linear-gradient(to bottom, #E6C85D 0%, #BE9B10 100%) border-box;
+
+    padding: 10px 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.reel {
+    width: 110px;
+    height: 110px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reel img {
+    width: 90%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* =========================================
+   6. THE LEVER
+   ========================================= */
+.lever-container {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -70px;
+    width: 60px;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 100 !important;
+    overflow: visible;
+    cursor: pointer
+}
+
+.lever-ball {
+    width: 70px;
+    height: 70px;
+    background: radial-gradient(circle at 30% 30%, #ff4d4d, #cc0000);
+    border-radius: 50%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    z-index: 102;
+}
+
+.lever-stick {
+    width: 18px;
+    height: 95px;
+    background: linear-gradient(90deg, #999, #fff, #666);
+    border-radius: 6px;
+    margin-top: 20px;
+    z-index: 101;
+}
+
+/* =========================================
+   7. FOOTER LOGO
+   ========================================= */
+.logo-corner {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 150px;
+}
+
+
+/* =========================================
+   8. RESULT MESSAGE
+   ========================================= */
+.result-message {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 20px;
+    min-height: 48px;
+    letter-spacing: 1px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.result-message.win,
+.result-message.lose {
+    opacity: 1;
+}
+
+.result-message.win {
+    color: #2ecc71;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 4px 4px 10px rgba(0, 0, 0, 0.8);
+    animation: pulse 1s infinite alternate;
+}
+
+.result-message.lose {
+    color: #e74c3c;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 4px 4px 10px rgba(0, 0, 0, 0.8);
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.05);
+    }
+}
+
+
+
+/* comme le code etait tres long on c'est répartie la tache sur nos différents IDE et fichers et ensuite rassembler en 1 tout le cods que pour chaque page de 1 à 4 */
