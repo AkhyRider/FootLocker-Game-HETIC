@@ -8,8 +8,8 @@ Il s'agit d'une application web interactive sous forme de mini-jeu (machine à s
 Ce projet est une expérience ludique en trois étapes pour la marque Foot Locker. L'utilisateur est invité à participer, remplit un formulaire d'inscription, puis tente sa chance sur une machine à sous virtuelle stylisée.
 
 **Le parcours utilisateur comprend 3 pages:**
-
--Page d'Accueil (`index.html`) : Écran de présentation avec le bouton "START" pour lancer l'expérience.
+-Les conditions général ('conditions.html') ; Permet de valider les codnitons d'utilisation du site 
+-Page d'Accueil (`page1.html`) : Écran de présentation avec le bouton "START" pour lancer l'expérience.
 -Page d'Inscription (`page2.html`) : Un formulaire de contact (Nom, Prénom, Email) pour valider la participation.
 -Page de Jeu (`page3.html`) : La machine à sous (Slot Locker) avec un levier interactif et animé.
 
