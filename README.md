@@ -1,21 +1,32 @@
-**FootLocker Game - Projet HETIC**
+<p align="center"><img src="banner.svg" alt="Slot Locker, jeu-concours Foot Locker" width="100%"></p>
 
-Bienvenue sur le dépôt du projet FootLocker Game fait par Aymen Khlifi, Racha Bouajila & Louis Nourry ! 
-Il s'agit d'une application web interactive sous forme de mini-jeu (machine à sous) développée dans le cadre de notre cursus en première année à HETIC.
+Personne n'a envie de remplir un formulaire. Par contre, tout le monde veut tirer le levier d'une machine à sous. On a donc transformé la collecte de contacts pour **Foot Locker** en mini-jeu, en gardant **le consentement en premier**.
 
-**Description du Projet:**
+Projet de groupe de 1re année à HETIC, par **Aymen Khlifi, Racha Bouajila et Louis Nourry**.
 
-Ce projet est une expérience ludique en trois étapes pour la marque Foot Locker. L'utilisateur est invité à participer, remplit un formulaire d'inscription, puis tente sa chance sur une machine à sous virtuelle stylisée.
+**Étude de cas :** [portfolio-ay-kh.netlify.app/project-footlocker](https://portfolio-ay-kh.netlify.app/project-footlocker.html)
 
-**Le parcours utilisateur comprend 3 pages:**
--Les conditions général ('conditions.html') ; Permet de valider les codnitons d'utilisation du site 
--Page d'Accueil (`page1.html`) : Écran de présentation avec le bouton "START" pour lancer l'expérience.
--Page d'Inscription (`page2.html`) : Un formulaire de contact (Nom, Prénom, Email) pour valider la participation.
--Page de Jeu (`page3.html`) : La machine à sous (Slot Locker) avec un levier interactif et animé.
+## Le parcours en 5 écrans
 
-**Technologies Utilisées:**
+| | Écran | Fichier | Ce qui s'y passe |
+|:-:|---|---|---|
+| 1 | Conditions | `conditions.html` | On lit et on coche. Sans la case, on ne joue pas. |
+| 2 | Accueil | `page1.html` | « Tente ta chance ! » et un bouton START. |
+| 3 | Inscription | `page2.html` | Nom, prénom, email. Rien de plus. |
+| 4 | Slot Locker | `page3.html` | Trois rouleaux et un levier animé. |
+| 5 | Résultat | `page_win.html`, `page_lose.html` | Gagné ou perdu, avec un bouton pour rejouer. |
 
-Ce projet a été construit avec les standards du web :
-HTML5
-CSS3
-JavaScript
+<p align="center">
+  <img src="captures/fl-conditions.webp" width="49%" alt="Conditions générales">
+  <img src="captures/fl-accueil.webp" width="49%" alt="Écran d'accueil">
+  <img src="captures/fl-inscription.webp" width="49%" alt="Formulaire d'inscription">
+  <img src="captures/fl-slot.webp" width="49%" alt="La machine à sous">
+</p>
+
+## Lancer le projet
+
+Aucune installation : ouvre `FootLocker-Game-HETIC/conditions.html` dans ton navigateur.
+
+## Technologies
+
+HTML5, CSS3 et JavaScript, sans framework.
